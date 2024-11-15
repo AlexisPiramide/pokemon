@@ -17,6 +17,10 @@ public class pokemonUsecases {
         return this.pokemonRepository.get();
     }
 
+    public List<Pokemon> getTipo(String tipo) {
+        return this.pokemonRepository.getTipo(tipo);
+    }
+
     public Pokemon get(String nombre){
         return this.pokemonRepository.get(nombre);
     }

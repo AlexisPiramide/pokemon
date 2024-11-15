@@ -23,7 +23,7 @@ public class entrenadorRepositorySQL implements entrenadorRepository {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()){
-                Entrenador entrenador = new Entrenador(rs.getInt("id"),rs.getString("nombre"),rs.getString("sexo").charAt(0));
+                Entrenador entrenador = new Entrenador(rs.getString("nombre"),rs.getString("sexo").charAt(0));
                 entrenadores.add(entrenador);
             }
 
@@ -35,15 +35,15 @@ public class entrenadorRepositorySQL implements entrenadorRepository {
     }
 
     @Override
-    public Entrenador get(Integer id) {
-        String query = "SELECT * FROM entrenador WHERE id= (?)";
+    public Entrenador get(String nombre) {
+        String query = "SELECT * FROM entrenador WHERE nombre= (?)";
         try {
             PreparedStatement preparedStatement = DBConnection.getInstance().prepareStatement(query);
-            preparedStatement.setInt(1,id);
+            preparedStatement.setString(1,nombre);
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()){
-                Entrenador entrenador = new Entrenador(rs.getInt("id"),rs.getString("nombre"),rs.getString("sexo").charAt(0));
+                Entrenador entrenador = new Entrenador(rs.getString("nombre"),rs.getString("sexo").charAt(0));
                 return entrenador;
             }
 
@@ -57,13 +57,12 @@ public class entrenadorRepositorySQL implements entrenadorRepository {
     @Override
     public Entrenador insert(Entrenador entrenador) {
 
-        String query = "INSERT INTO entrenador (id, nombre, sexo) VALUES (?, ?, ?)";
+        String query = "INSERT INTO entrenador (nombre, sexo) VALUES (?, ?)";
         try {
             PreparedStatement preparedStatement = DBConnection.getInstance().prepareStatement(query);
-
-            preparedStatement.setInt(1, entrenador.getId());
-            preparedStatement.setString(2, entrenador.getNombre());
-            preparedStatement.setString(3, String.valueOf(entrenador.getSexo()));
+            ;
+            preparedStatement.setString(1, entrenador.getNombre());
+            preparedStatement.setString(2, String.valueOf(entrenador.getSexo()));
 
             int rowsAffected = preparedStatement.executeUpdate();
 
@@ -78,12 +77,11 @@ public class entrenadorRepositorySQL implements entrenadorRepository {
 
     @Override
     public Entrenador delete(Entrenador entrenador) {
-        String query = "DELETE FROM entrenador WHERE id = ?";
+        String query = "DELETE FROM entrenador WHERE nombre = ?";
         try {
 
             PreparedStatement preparedStatement = DBConnection.getInstance().prepareStatement(query);
-            preparedStatement.setInt(1, entrenador.getId());
-
+            preparedStatement.setString(1,entrenador.getNombre());
             int rowsAffected = preparedStatement.executeUpdate();
 
             if (rowsAffected > 0) return entrenador;

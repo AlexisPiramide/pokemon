@@ -16,7 +16,7 @@ public class entrenadorUsecases {
     public List<Entrenador> get(){
         return this.entrenadorRepository.get();
     }
-    public Entrenador get(Integer id){
+    public Entrenador get(String id){
         return this.entrenadorRepository.get(id);
     }
 

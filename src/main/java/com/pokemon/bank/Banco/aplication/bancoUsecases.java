@@ -18,8 +18,8 @@ public class bancoUsecases {
     public List<Banco> get(Entrenador entrenador){
         return this.bancoRepository.get(entrenador);
     }
-    public List<Banco> insert(Pokemon pokemon, Entrenador entrenador){
-        return this.bancoRepository.insert(pokemon,entrenador);
+    public List<Banco> insert(Pokemon pokemon, Entrenador entrenador, int nivel){
+        return this.bancoRepository.insert(pokemon,entrenador,nivel);
     }
 
     public List<Banco> delete(Pokemon pokemon, Entrenador entrenador){

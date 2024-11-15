@@ -28,7 +28,6 @@ public class Banco {
 
 
     public void mostrarInformacion() {
-        System.out.println("Entrenador: " + entrenador.getNombre() + " (ID: " + entrenador.getId() + ")");
         System.out.println("Pokémon: " + pokemon.getNombre() + " - Tipo: " + pokemon.getTipoP());
         if (pokemon.getTipoS() != null) {
             System.out.println("Tipo Secundario: " + pokemon.getTipoS());

@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface bancoRepository {
     public List<Banco> get(Entrenador entrenador);
-    public List<Banco> insert(Pokemon pokemon, Entrenador entrenador);
+    public List<Banco> insert(Pokemon pokemon, Entrenador entrenador, int nivel);
     public List<Banco> delete(Pokemon pokemon, Entrenador entrenador);
 }

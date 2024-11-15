@@ -2,19 +2,14 @@ package com.pokemon.bank.Entrenador.domain;
 
 public class Entrenador {
 
-    private int id;
     private String nombre;
     private char sexo;
 
-    public Entrenador(int id, String nombre, char sexo) {
-        this.id = id;
+    public Entrenador( String nombre, char sexo) {
         this.nombre = nombre;
         this.sexo = sexo;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public String getNombre() {
         return nombre;
@@ -25,7 +20,4 @@ public class Entrenador {
         return sexo;
     }
 
-    public String toString() {
-        return "Entrenador [id=" + id + ", nombre=" + nombre + ", sexo=" + sexo + "]";
-    }
 }

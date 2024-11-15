@@ -1,13 +1,7 @@
-CREATE TABLE tipo (
-    nombre VARCHAR(20) PRIMARY KEY
-);
-
 CREATE TABLE pokemon (
     nombre VARCHAR(50) PRIMARY KEY,
     tipoP VARCHAR(20) NOT NULL,
-    tipoS VARCHAR(20),
-    FOREIGN KEY (tipoP) REFERENCES tipo(nombre),
-    FOREIGN KEY (tipoS) REFERENCES tipo(nombre)
+    tipoS VARCHAR(20)
 );
 
 CREATE TABLE entrenador (
@@ -15,7 +9,7 @@ CREATE TABLE entrenador (
     sexo CHAR(1) CHECK (sexo IN ('M', 'F'))
 );
 
-CREATE TABLE bank (
+CREATE TABLE banco (
     pokemon VARCHAR(50),
     entrenador VARCHAR(50),
     nivel INT CHECK (nivel > 0),
